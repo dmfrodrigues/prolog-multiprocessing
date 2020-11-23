@@ -15,3 +15,13 @@ multiprocessing_create_(sicstus, Predicate, Out) :-
         ]
     ),
     format(In, '~q .~n', [Predicate]).
+multiprocessing_create_(swi, Predicate, Out) :-
+    format(string(String), '~q', Predicate),
+    process_create(
+        path(swipl),
+        ['-g', String, '-t', 'halt'],
+        [
+            stdin(null),
+            stdout(pipe(Out))
+        ]
+    ).

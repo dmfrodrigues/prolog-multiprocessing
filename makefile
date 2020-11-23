@@ -6,7 +6,7 @@ all:
 test: test_multiprocessing
 
 test_multiprocessing:
-	$(PROLOG) --noinfo -q -l tests/test_multiprocessing.pl
+	$(PROLOG) --noinfo -q -l test_multiprocessing.pl
 
 clean:
 	rm *.zip

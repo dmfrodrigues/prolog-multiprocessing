@@ -1,7 +1,7 @@
 :-
-    reconsult('../multiprocessing.pl'),
+    reconsult('multiprocessing.pl'),
     L = [h,e,l,l,o],
-    statistics(walltime, _),
+    statistics(walltime, [StartTimer|_]),
     multiprocessing_create((reconsult('print_me.pl'), print_me(L)), Out01),
     multiprocessing_create((reconsult('print_me.pl'), print_me(L)), Out02),
     multiprocessing_create((reconsult('print_me.pl'), print_me(L)), Out03),
@@ -18,7 +18,8 @@
     read(Out06, Answer06), close(Out06), write(Answer06), nl,
     read(Out07, Answer07), close(Out07), write(Answer07), nl,
     read(Out08, Answer08), close(Out08), write(Answer08), nl,
-    statistics(walltime, [_|[ExecutionTime]]),
+    statistics(walltime, [EndTimer|_]),
+    ExecutionTime is EndTimer-StartTimer,
     write(ExecutionTime),nl,
     halt(0).
 :-  halt(1).
