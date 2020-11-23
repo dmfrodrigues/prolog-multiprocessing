@@ -11,7 +11,8 @@ multiprocessing_create_(sicstus, Predicate, Out) :-
         ['-f', '--noinfo', '--nologo', '--goal', 'read(X), call(X), halt.'],
         [
             stdin(pipe(In)),
-            stdout(pipe(Out))
+            stdout(pipe(Out)),
+            stderr(std)
         ]
     ),
     format(In, '~q .~n', [Predicate]).
