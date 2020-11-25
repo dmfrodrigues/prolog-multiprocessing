@@ -1,3 +1,6 @@
+% (C) 2020 Diogo Rodrigues
+% Distributed under the terms of the GNU General Public License, version 3
+
 :-
     reconsult('multiprocessing.pl'),
     L = [h,e,l,l,o],
