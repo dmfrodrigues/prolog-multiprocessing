@@ -18,7 +18,8 @@ multiprocessing_create_(sicstus, Predicate, Out) :-
             stderr(std)
         ]
     ),
-    format(In, '~q .~n', [Predicate]).
+    format(In, '~q .~n', [Predicate]),
+    close(In).
 multiprocessing_create_(swi, Predicate, Out) :-
     format(string(String), '~q', Predicate),
     process_create(
