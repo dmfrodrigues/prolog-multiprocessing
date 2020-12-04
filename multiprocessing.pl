@@ -15,7 +15,8 @@ multiprocessing_create_(sicstus, Predicate, Out) :-
         [
             stdin(pipe(In)),
             stdout(pipe(Out)),
-            stderr(std)
+            stderr(std),
+            detached(true)
         ]
     ),
     format(In, '~q .~n', [Predicate]),
@@ -27,6 +28,7 @@ multiprocessing_create_(swi, Predicate, Out) :-
         ['-g', String, '-t', 'halt'],
         [
             stdin(null),
-            stdout(pipe(Out))
+            stdout(pipe(Out)),
+            detached(true)
         ]
     ).
